@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perpus Umum</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader"><div class="spinner"></div></div>
+
+<div class="sidebar">
+<img src="https://png.pngtree.com/png-vector/20230414/ourmid/pngtree-book-library-logo-vector-education-free-download-png-image_6705087.png" class="logo">
+<h2>Perpus Umum</h2>
+<button onclick="showSection('beranda')">Beranda</button>
+<button onclick="showSection('buku')">Daftar Buku</button>
+<button onclick="showSection('pinjam')">Peminjaman</button>
+<button onclick="showSection('anggota')">Anggota</button>
+</div>
+
+<div class="content">
+
+<div id="beranda" class="section">
+<h2>📊 Ringkasan Perpustakaan</h2>
+
+<!-- SAMBUTAN -->
+<div class="card">
+  <h3>👋 Selamat Datang di Sistem Perpustakaan</h3>
+  <p>Kelola buku, anggota, dan peminjaman dengan mudah dan cepat.</p>
+</div>
+
+<!-- RINGKASAN DATA -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
+  <div class="card">📚 Total Buku <br><b id="totalBuku">0</b></div>
+  <div class="card">👥 Total Anggota <br><b id="totalAnggota">0</b></div>
+  <div class="card">📖 Total Transaksi <br><b id="totalTransaksi">0</b></div>
+  <div class="card">⏳ Sedang Dipinjam <br><b id="bukuDipinjam">0</b></div>
+</div>
+
+<!-- INFO SISTEM -->
+<div class="card">
+  <h3>ℹ️ Informasi Sistem</h3>
+  <p>🗂 Data tersimpan otomatis di browser (Local Storage).</p>
+  <p>⚡ Sistem berjalan tanpa database online.</p>
+  <p>🔒 Aman digunakan untuk latihan proyek sekolah.</p>
+</div>
+</div>
+
+<div id="buku" class="section">
+<h2>Daftar Buku</h2>
+<div class="card">
+<div class="form-row"><label>Judul Buku</label><input id="judulBuku"></div>
+<div class="form-row"><label>Penulis</label><input id="penulisBuku"></div>
+<div class="form-row"><label>Tahun Terbit</label><input id="tahunBuku" type="number"></div>
+<button class="add-btn" onclick="tambahBuku()">Tambah</button>
+</div>
+<div class="table-wrapper"><table id="tabelBuku"></table></div>
+</div>
+
+<div id="pinjam" class="section">
+<h2>Peminjaman Buku</h2>
+<div class="card">
+<div class="form-row"><label>Nama Peminjam</label><input id="namaPinjam"></div>
+<div class="form-row"><label>Judul Buku</label><input id="judulPinjam"></div>
+<div class="form-row"><label>Tanggal</label><input id="tglPinjam" type="date"></div>
+<div class="form-row"><label>Status</label>
+<select id="statusPinjam"><option value="Pinjam">Pinjam</option><option value="Kembali">Kembali</option></select></div>
+<div class="form-row"><label>Keterangan</label><input id="ketPinjam"></div>
+<button class="add-btn" onclick="tambahPinjam()">Tambah</button>
+</div>
+<div class="table-wrapper"><table id="tabelPinjam"></table></div>
+</div>
+
+<div id="anggota" class="section">
+<h2>Informasi Anggota</h2>
+<div class="card">
+<div class="form-row"><label>Nama</label><input id="namaAnggota"></div>
+<div class="form-row"><label>Alamat</label><input id="alamatAnggota"></div>
+<div class="form-row"><label>Gmail</label><input id="gmailAnggota"></div>
+<div class="form-row"><label>Tgl Gabung</label><input id="tglGabung" type="date"></div>
+<button class="add-btn" onclick="tambahAnggota()">Tambah</button>
+</div>
+<div class="table-wrapper"><table id="tabelAnggota"></table></div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
